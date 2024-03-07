@@ -9,17 +9,19 @@ def query_builder(retieved_Context, user_query):
 
 def main():
     p=0
+    responses =[]
     chat_history = [
 	{"user_name": "Chatbot", "text": "Hey! How can I help you today?"},]
-    while True and p<5:
+    while True and p<6:
         input_query = input()
         input_query= query_builder(retriever(input_query), input_query)
         response = co.chat(message=input_query, chat_history=chat_history)
         x={"user_name":"user", "text":input_query}
         chat_history.append(x)
         chat_history.append({"user_name": "Chatbot", "text":response.text})
-        print(response.text)
         p=p+1
+        responses.append(response.text)
+    return responses
 
 
 if __name__ == "__main__":

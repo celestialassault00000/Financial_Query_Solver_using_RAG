@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Chatbot</title>
+</head>
+
+<body>
+    <h1>Simple Chatbot</h1>
+    <form method="post">
+        <label for="user_input">User Input:</label>
+        <input type="text" name="user_input" id="user_input" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if user_input %}
+    <p>User: {{ user_input }}</p>
+    {% for response in responses %}
+    <p>{{ response }}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
