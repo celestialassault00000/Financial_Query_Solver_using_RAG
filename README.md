@@ -1,4 +1,7 @@
 Same module can be used as chatbot as it model has significant attention window. We can have a conversation upto 20 responses.
+
+
+
 Future plans:-
 Design Web crawler to continously look for new information on internat regarding finance and append those in our database.
 
