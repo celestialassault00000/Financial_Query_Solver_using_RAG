@@ -3,19 +3,97 @@
 
 <head>
     <title>Chatbot</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: cyan;
+            /* Set the background color to cyan */
+        }
+
+        #container-wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #chat-container {
+            width: 60%;
+            /* Adjust the width as needed */
+            max-width: 600px;
+            /* Adjust the maximum width as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+            /* Add left margin to align to the left */
+            margin-bottom: 20px;
+            /* Add more margin at the bottom */
+            overflow-y: auto;
+            /* Add overflow-y for scrolling if content exceeds container height */
+            height: 300px;
+            /* Set a fixed height for the chat container */
+            background-color: white;
+            /* Set the background color of the chat container to white */
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* Change to column layout */
+            width: 60%;
+            /* Adjust the width as needed */
+            max-width: 600px;
+            /* Adjust the maximum width as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+            /* Add left margin to align to the left */
+            margin-bottom: 10px;
+            /* Add more margin at the bottom */
+            margin-top: 10px;
+            /* Add margin at the top */
+            background-color: white;
+            /* Set the background color of the form container to white */
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            /* Adjust the margin */
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+
+        .message {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Chatbot</h1>
-    <div id="chat-container">
-        {% for message in chat_history %}
-        <p><strong>{{ message.user_name }}:</strong> {{ message.text }}</p>
-        {% endfor %}
+    <h1 style="text-align: center;">Assistant</h1>
+    <div id="container-wrapper">
+        <div id="chat-container">
+            <p class="message">{{ chat_history }}</p>
+        </div>
+        <form action="/chat" method="post">
+            <input type="text" name="query" placeholder="Enter your query">
+            <button type="submit">Search</button>
+        </form>
     </div>
-    <form action="/chat" method="post">
-        <input type="text" name="query">
-        <button type="submit">Send</button>
-    </form>
 </body>
 
 </html>
